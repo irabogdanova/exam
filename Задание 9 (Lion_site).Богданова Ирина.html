@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Raleway', sans-serif;;
+        }
+        .navbar{
+            max-width: 1000px;
+            height: 50px;
+            /* border: 1px solid blueviolet; */
+            margin: 0 auto;
+            box-shadow: 1px 1px 10px #cccccc;
+            }
+        .navbar .container{
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden; /*содержимое не вылазит за пределы блока*/
+        }
+        .navbar-menu{
+            list-style: none;
+        }
+        .navbar-menu li{
+            /* border: 1px solid rgb(143, 211, 250); */
+            display: inline-block;
+            float: left; /*выстраиваем по горизонтали*/
+        }
+        .navbar-menu li a{
+           text-decoration: none; 
+           color: black;
+            font-size: 12px;
+           font-weight: 700;
+           font-family:sans-serif;
+           padding: 20px 70px;
+           transition: .05s;
+        }
+        .navbar-menu li a:hover{
+            color: white;
+            background-color: #FFC700;
+            border-radius: 1px;
+            height: 50px;
+            transition: .1s;
+            overflow: hidden;
+        }
+        .navbar-wrap{
+            display: flex;
+            flex-flow: row nowrap;
+            padding-right: 80px;
+        }
+        .navbar-brand{
+            padding-left: 10px;
+            margin-top: 5px;
+            
+        }
+        section{
+            margin: 0 auto;
+            max-width: 1000px;
+            height: auto;
+            box-shadow: 1px 1px 10px #cccccc;
+        }
+        .grid-container{
+            height: 300px;
+            background-color: black;
+            display: grid;
+            grid-template-columns: 150px 190px 170px 1fr 190px 150px;
+            grid-template-rows: 15% 22% 21% 27% 15%;
+            max-width: 1000px;
+            height: 300px;
+            justify-content: center;
+            align-content: center;
+        }
+        .grid-item1{
+            grid-area: 2/2/3/5;
+        }
+        .grid-item2{
+            display: inline-block;
+            color: #FFC700;
+            font-weight: bolder;
+            font-size: 72px;
+            grid-area: 3/4/3/5;
+            align-self: center;
+            position: relative;
+            left: 10px;
+        }
+        .block-lion{
+            width:165px;
+            height: 65px;
+            border: 1px solid #FFDF6C;
+            grid-area: 3/4/3/5;
+            align-self: center;
+            justify-self: end;
+            box-shadow: 0 0 5px #FFDF6C;
+        }
+        .grid-item3{
+            display: inline-block;
+            grid-area: 4/5/4/6;
+            text-align: end;
+            align-self: end;
+            
+        }
+        .grid-item3-1 a{
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        .grid-item3-2{
+            color: white;
+            font-size: 14px;
+        }
+        .grid-item4{
+            color: rgb(0, 0, 0);
+            font-size: 22px;
+            font-weight: 500;
+            display: inline-block;
+            background-color: #FFC700;
+            width: 180px;
+            height: 53px;
+            grid-area: 3/5/4/6;
+            position: relative;
+            top:4px;
+            text-align: start;  
+            padding-left: 3px; 
+        }
+        /*Price*/
+        p{
+            text-decoration: underline;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .flex-price ul li{
+            text-decoration: none;
+            font-size: 12px;
+            list-style: none;
+        }
+        .flex-price ul{
+            padding-left: 10px;
+        }
+        .price{
+            color: #CDA411;
+            /* border: 1px solid rgb(124, 216, 112); */
+            margin-top: 40px;     
+            width: 80px;
+            text-align: right;
+        }
+        .flex-price {
+            /* border: 1px solid palevioletred; */
+            display: flex;
+            justify-content: center;
+            max-height: 300px;
+            
+        }
+        .flex-price img{
+            padding-top: 15px;
+        }
+        .right-k, .right-d, .left{
+            /* border: 1px solid rgb(135, 112, 216); */
+            display: flex;
+            justify-content: space-between;
+            
+        }
+        .left, .right-column{
+            max-width: 394px;
+            margin-right: 20px;
+        }
+        .right-column{
+            max-width: 394px;
+            display: flex;
+            flex-direction: column;
+            margin-left: 10px;
+            /* border: 1px solid rgb(112, 216, 164); */
+        }
+        
+        /*Input*/ 
+        .block-input{
+            width: 100%;
+            min-height: 300px;
+            /* border: 1px solid rgb(216, 168, 112); */
+            display: flex;
+            background-color: black;
+            align-items: center;
+            justify-content: space-around;
+        }
+        input{
+            outline: none !important;
+            border:none;
+            border-bottom: 2px solid rgba(255, 223, 108, .52);
+            font-size: 20px;
+            font-weight: 700;
+            background-color: black;
+            color: #FFC700;
+        }
+        
+        input:invalid{
+            color: rgba(255, 223, 108, .52);
+        }
+        input::placeholder { 
+            color: #FFDF6C;
+            opacity: 52%;
+        }
+        .button{
+            width: 175px;
+            height: 50px;
+            font-weight: 800;
+            font-size: 20px;
+            background-color: #FFC700;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: center;
+            padding-top: 15px;
+            cursor:pointer;
+            box-sizing: border-box;
+        }
+        .adress{
+            /* border: 1px solid rgb(216, 168, 112); */
+            max-width: 1000px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            padding-right: 30px;
+            
+        }
+        .adress img{
+            padding-right: 20px;
+            position: relative;
+            bottom: 75px;
+        }
+        .station-red{
+            font-size: 20px;
+            color: red;
+            text-decoration: underline;
+        }
+        .station-blue{
+            font-size: 20px;
+            color: blue;
+            text-decoration: underline;
+        }
+        .station-green{
+            font-size: 20px;
+            color: green;
+            text-decoration: underline;
+        }
+        .station-orange{
+            font-size: 20px;
+            color: orange;
+            text-decoration: underline;
+        }
+        .adress-block{
+            padding-right: 25px;
+        }
+        .adress-block1{
+            padding:40px 25px 0 25px;
+        }
+        .adress-block, .adress-block1>p{
+            text-decoration: none;
+        }
+        /*  Footer */
+        .footer{
+            max-width: 100%;
+            height: 50px;
+            background-color: black;
+            margin: 0 auto;  
+            color: white;  
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .footer a{
+            color: white;
+            text-decoration: none;
+            padding-left: 20px;
+        }
+        .footer-contact{
+            display: flex;
+            padding-left: 100px;
+            
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="navbar-brand"><img src="Lable.png"/></a>
+                <div class="navbar-wrap">
+                    <ul class="navbar-menu">
+                        <li><a href="#">В НАЧАЛО</a></li>
+                        <li><a href="#">УСЛУГИ</a></li>
+                        <li><a href="#">ЗАПИСЬ</a></li>
+                        <li><a href="#">АДРЕСА САЛОНОВ</a></li>
+                    </ul>
+                </div>
+        </div>
+    </nav>
+    <section>
+        <div class="grid-container">
+            <div class="grid-item1"><img src="Lion.png" alt="Lion"></div>
+            <div class="grid-item2">LION</div>
+            <div class="block-lion"></div>
+            <div class="grid-item3">
+                <div class="grid-item3-1"><a href="tel:7800888888">8(800)888-88-88</a></div>
+                <div class="grid-item3-2">Ежедневно с 10:00 до 22:00</div>
+            </div>
+            <div class="grid-item4">
+                <div class="grid-item4-1">сеть мужских</div>
+                <div class="grid-item4-2">парикмахерских</div>
+            </div>
+        </div>
+        <!-- /*Price*/ -->
+        <div class="flex-price">
+           <div class="left"> 
+               <div><img src="Lable.png"/></div>
+               <div>
+                <ul>
+                   <p>Основные услуги</p>
+                    <li>стрижка мужская</li>
+                    <li>стрижка детская</li>
+                    <li>стрижка под машинку (несколько насадок)</li>
+                    <li>стрижка под машинку (одна насадка)</li>
+                    <li>бритье королевское (лицо и голова)</li>
+                    <li>коррекция бороды с подбриванием</li>
+                    <li>коррекция бороды</li>
+                    <li>стрижка усов</li>
+                </ul>
+            </div>
+            <div >
+                <ul class="price">
+                    <li>1000</li>
+                    <li>1000</li>
+                    <li>600</li>
+                    <li>1500</li>
+                    <li>1500</li>
+                    <li>1000</li>
+                    <li>700</li>
+                    <li>500</li>
+                </ul>
+            </div>
+            </div> 
+        <div class="right-column">
+            <div class="right-d"> 
+                <div><img src="Lable.png"/></div>
+                <div>
+                    <ul>
+                        <p>Дополнительные услуги</p>
+                        <li>комуфляж седины (волосы)</li>
+                        <li>комуфляж седины (борода)</li>
+                        <li>мытьё и укладка</li>
+                        <li>окантовка с подбриванием</li>
+                    </ul>
+                </div>
+                 <!-- ДОБАВЬ ФИКСИРОВАННОЕ МЕНЮ добавить min к каждому height изменить на br  -->
+                <div >
+                    <ul class="price">
+                        <li>1000</li>
+                        <li>800</li>
+                        <li>500</li>
+                        <li>600</li>
+                    </ul>
+                </div>
+             </div>
+             <div class="right-k">
+                <div><img src="Lable.png"/></div>
+                 <div>
+                    <ul>
+                        <p>Комплексные услуги</p>
+                        <li>друг + друг</li>
+                        <li>папа + сын</li>
+                        <li>стрижка + коррекция бороды</li>
+                        <li>стрижка + камуфляж</li>
+                        <li>стрижка + королевское бритьё</li>
+                        <li>борода с подбриванием + камуфляж</li>
+                    </ul>
+                </div>
+                <div >
+                    <ul class="price">
+                        <li>2500</li>
+                        <li>2000</li>
+                        <li>2000</li>
+                        <li>2000</li>
+                        <li>2500</li>
+                        <li>1500</li>
+                    </ul>
+                </div>
+            </div>
+         </div>
+        </div>
+        <!-- /*Input*/ -->
+        <div class="block-input">
+            <div>
+                <div class="input-i"><input type="text" placeholder="*Имя"></div>
+                <div class="input-i"><input type="email" placeholder="*email"></div>
+                <div class="input-i"><input type="text" placeholder="*Комментарий"></div>
+            </div>
+            <div class="button">ЗАПИСАТЬСЯ</div>
+        </div>
+        <!-- Adress -->
+        <div class="adress">
+                <div><img src="Lable.png"/></div>
+            <div class="adress-block">
+                <h3>Адреса Салонов:</h3>
+                    <p><span class="station-red"> ст.м.Маяковская</span> </br> ул.Маяковского </p>
+                    <p><span class="station-blue"> ст.м.Невский проспект</span> </br>Невский проспект 70</p>
+                    <p><span class="station-green">ст.м.Елизаровская </span></br> ул. Елизарова 7 </p>
+            </div>
+            <div class="adress-block1">
+                <p><span class="station-blue">ст.м.Купчино</span> </br> ул.Маяковского 6а </p>
+                <p><span class="station-orange">ст.м.Спасская</span> </br> Апраксин двор 13 </p>
+                <p><span class="station-red">ст.м.Академическая</span> </br> Культуры проспект 90 </p>
+            </div>
+            <div class="adress-block1">
+                <p><span class="station-orange">ст.м.Ладожская</span> </br> Пр. Энергетиков  14 </p>
+                <p><span class="station-orange">ст.м.Ул.Дыбенко</span> </br>Кудрово, Кипарисовая аллея 25</p>
+                <p><span class="station-red">ст.м.Девяткино </span></br>Мурино, Березовая аллея 66</p>
+            </div>    
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+                <div>(с)OOO”Лион”,2021 </div>
+                <div class="footer-contact">
+                    <div> e-mail:lionbeauty@gmal.com</div>
+                    <div><a href="tel:7800888888">8(800)888-88-88</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
